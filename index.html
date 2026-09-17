@@ -1,0 +1,323 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AuraOS | AI Travel Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         APPLICATION HEADER
+    ========================================================== -->
+
+    <header class="app-header">
+
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+
+            <div class="brand-text">
+                <h1>AuraOS</h1>
+                <span>AI Travel Assistant</span>
+            </div>
+        </div>
+
+        <div class="header-status">
+            <span class="status-dot"></span>
+            <span>AI Concierge Online</span>
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         APPLICATION LAYOUT
+    ========================================================== -->
+
+    <div class="app-layout">
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
+
+        <aside class="sidebar">
+
+            <button id="newChatButton" class="new-chat-button">
+                <span>＋</span>
+                <span>New Chat</span>
+            </button>
+
+
+            <nav class="sidebar-nav">
+
+                <div class="nav-section-title">
+                    EXPLORE
+                </div>
+
+                <button class="nav-item active" data-action="hotels">
+                    <span class="nav-icon">🏨</span>
+                    <span>Find Hotels</span>
+                </button>
+
+                <button class="nav-item" data-action="trips">
+                    <span class="nav-icon">✈️</span>
+                    <span>Plan a Trip</span>
+                </button>
+
+                <button class="nav-item" data-action="bookings">
+                    <span class="nav-icon">📅</span>
+                    <span>My Bookings</span>
+                </button>
+
+                <button class="nav-item" data-action="concierge">
+                    <span class="nav-icon">🧳</span>
+                    <span>Concierge</span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-divider"></div>
+
+
+            <div class="recent-section">
+
+                <div class="nav-section-title">
+                    RECENT
+                </div>
+
+                <div id="recentChats" class="recent-chats">
+
+                    <div class="empty-recent">
+                        No recent conversations
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-footer">
+
+                <div class="powered-by">
+                    Powered by
+                    <strong>STAT-TECH-AI</strong>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CHAT AREA
+        ====================================================== -->
+
+        <main class="chat-main">
+
+            <!-- =================================================
+                 WELCOME SCREEN
+            ================================================== -->
+
+            <section id="welcomeScreen" class="welcome-screen">
+
+                <div class="welcome-background"></div>
+
+                <div class="welcome-overlay"></div>
+
+
+                <div class="welcome-content">
+
+                    <div class="welcome-badge">
+                        ✦ Intelligent Travel Concierge
+                    </div>
+
+                    <h2>
+                        Where will your
+                        <span>journey</span> take you?
+                    </h2>
+
+                    <p>
+                        Discover hotels, plan trips and explore destinations
+                        with your personal AI travel assistant.
+                    </p>
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <div class="quick-actions">
+
+                        <button
+                            class="quick-action"
+                            data-prompt="Find me hotels in Bangalore under ₹3000 per night"
+                        >
+                            <span class="quick-icon">🏨</span>
+
+                            <span>
+                                <strong>Find Hotels</strong>
+                                <small>Search the perfect stay</small>
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="quick-action"
+                            data-prompt="Help me plan a trip"
+                        >
+                            <span class="quick-icon">✈️</span>
+
+                            <span>
+                                <strong>Plan a Trip</strong>
+                                <small>Create your itinerary</small>
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="quick-action"
+                            data-prompt="Show me popular travel destinations"
+                        >
+                            <span class="quick-icon">🌍</span>
+
+                            <span>
+                                <strong>Explore Destinations</strong>
+                                <small>Discover somewhere new</small>
+                            </span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- TRAVEL INSPIRATION -->
+
+                    <div class="inspiration-section">
+
+                        <div class="inspiration-title">
+                            Explore the world
+                        </div>
+
+                        <div class="destination-cards">
+
+
+                            <button
+                                class="destination-card"
+                                data-prompt="Find hotels near the Red Fort in Delhi"
+                            >
+
+                                <div class="destination-image red-fort"></div>
+
+                                <div class="destination-info">
+                                    <strong>Delhi</strong>
+                                    <span>🏰 Red Fort</span>
+                                </div>
+
+                            </button>
+
+
+                            <button
+                                class="destination-card"
+                                data-prompt="Help me plan a trip to Paris"
+                            >
+
+                                <div class="destination-image eiffel"></div>
+
+                                <div class="destination-info">
+                                    <strong>Paris</strong>
+                                    <span>🗼 Eiffel Tower</span>
+                                </div>
+
+                            </button>
+
+
+                            <button
+                                class="destination-card"
+                                data-prompt="Find hotels in Manali"
+                            >
+
+                                <div class="destination-image manali"></div>
+
+                                <div class="destination-info">
+                                    <strong>Manali</strong>
+                                    <span>🏔️ Himalayas</span>
+                                </div>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CHAT CONVERSATION
+            ================================================== -->
+
+            <section
+                id="conversationArea"
+                class="conversation-area hidden"
+            >
+
+                <div
+                    id="chatWindow"
+                    class="chat-window"
+                >
+                    <!-- Messages inserted by JavaScript -->
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CHAT INPUT
+            ================================================== -->
+
+            <div class="chat-input-container">
+
+                <div class="chat-input-wrapper">
+
+                    <textarea
+                        id="chatInput"
+                        rows="1"
+                        placeholder="Ask AuraOS anything about hotels, travel or destinations..."
+                    ></textarea>
+
+                    <button
+                        id="sendChatButton"
+                        class="send-button"
+                        aria-label="Send message"
+                    >
+                        ➤
+                    </button>
+
+                </div>
+
+                <div class="input-hint">
+                    AuraOS can help you search hotels, plan trips and explore destinations.
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         SCRIPT
+    ========================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+

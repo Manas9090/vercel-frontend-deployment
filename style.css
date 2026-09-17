@@ -1,0 +1,1577 @@
+/* =========================================================
+   AURAOS — AI TRAVEL ASSISTANT
+   Professional Travel UI
+========================================================= */
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #07111f;
+    color: #f5f7fa;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+
+    --bg-main: #07111f;
+    --bg-sidebar: #091522;
+
+    --panel: #0d1b2a;
+    --panel-light: #122338;
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --text-primary: #f7f9fc;
+    --text-secondary: #aab6c5;
+    --text-muted: #718096;
+
+    --accent: #55c7ff;
+    --accent-dark: #1688c7;
+
+    --success: #31d49a;
+
+    --user-message: #116a9b;
+
+    --shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+
+    --radius-small: 10px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+}
+
+
+/* =========================================================
+   APPLICATION HEADER
+========================================================= */
+
+.app-header {
+
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    background: rgba(7, 17, 31, 0.96);
+
+    border-bottom: 1px solid var(--border);
+
+    position: relative;
+    z-index: 20;
+}
+
+
+/* BRAND */
+
+.brand {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1a9bd7,
+            #6ed5ff
+        );
+
+    color: white;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 5px 20px rgba(40, 170, 230, 0.25);
+}
+
+.brand-text h1 {
+
+    font-size: 20px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+.brand-text span {
+
+    display: block;
+
+    margin-top: 1px;
+
+    font-size: 11px;
+
+    color: var(--text-muted);
+
+    letter-spacing: 0.4px;
+}
+
+
+/* HEADER STATUS */
+
+.header-status {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 10px rgba(49, 212, 154, 0.7);
+}
+
+
+/* =========================================================
+   MAIN APPLICATION LAYOUT
+========================================================= */
+
+.app-layout {
+
+    height: calc(100vh - 70px);
+
+    display: flex;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+
+    width: 245px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 22px 15px;
+
+    background: var(--bg-sidebar);
+
+    border-right: 1px solid var(--border);
+}
+
+
+/* NEW CHAT */
+
+.new-chat-button {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 15px;
+
+    border: 1px solid rgba(85, 199, 255, 0.35);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(33, 151, 211, 0.22),
+            rgba(25, 103, 145, 0.12)
+        );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.new-chat-button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(33, 151, 211, 0.35),
+            rgba(25, 103, 145, 0.2)
+        );
+
+    transform: translateY(-1px);
+}
+
+
+/* SIDEBAR NAV */
+
+.sidebar-nav {
+
+    margin-top: 30px;
+}
+
+.nav-section-title {
+
+    padding: 0 10px;
+
+    margin-bottom: 10px;
+
+    color: #5f7186;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+
+.nav-item {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    margin-bottom: 4px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.nav-item:hover {
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: white;
+}
+
+.nav-item.active {
+
+    background:
+        rgba(56, 173, 225, 0.12);
+
+    color: var(--accent);
+}
+
+.nav-icon {
+
+    width: 25px;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+
+/* DIVIDER */
+
+.sidebar-divider {
+
+    height: 1px;
+
+    background: var(--border);
+
+    margin: 22px 8px;
+}
+
+
+/* RECENT */
+
+.recent-section {
+
+    flex: 1;
+
+    overflow: hidden;
+}
+
+.recent-chats {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.empty-recent {
+
+    padding: 12px 10px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+}
+
+
+/* SIDEBAR FOOTER */
+
+.sidebar-footer {
+
+    padding: 15px 8px 5px;
+
+    border-top: 1px solid var(--border);
+}
+
+.powered-by {
+
+    color: #617287;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+.powered-by strong {
+
+    color: #8ca0b5;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MAIN CHAT AREA
+========================================================= */
+
+.chat-main {
+
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(24, 91, 132, 0.10),
+            transparent 40%
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   WELCOME SCREEN
+========================================================= */
+
+.welcome-screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow-y: auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 30px 150px;
+
+    background: #07111f;
+}
+
+
+/* BACKGROUND IMAGE */
+
+.welcome-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5, 15, 27, 0.96),
+            rgba(5, 15, 27, 0.72),
+            rgba(5, 15, 27, 0.87)
+        ),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+
+    background-position: center;
+
+    opacity: 0.7;
+
+    transform: scale(1.02);
+}
+
+
+/* EXTRA OVERLAY */
+
+.welcome-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 10%,
+            rgba(4, 12, 22, 0.75) 85%
+        );
+}
+
+
+/* WELCOME CONTENT */
+
+.welcome-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 100%);
+
+    text-align: center;
+}
+
+
+/* BADGE */
+
+.welcome-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 13px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(105, 208, 255, 0.25);
+
+    border-radius: 999px;
+
+    background: rgba(20, 77, 110, 0.28);
+
+    backdrop-filter: blur(10px);
+
+    color: #8edcff;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* MAIN TITLE */
+
+.welcome-content h2 {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    font-size: clamp(38px, 5vw, 66px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    color: white;
+}
+
+.welcome-content h2 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #63d4ff,
+            #9be7ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.welcome-content > p {
+
+    max-width: 620px;
+
+    margin: 20px auto 30px;
+
+    color: #b7c5d4;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin: 0 auto 35px;
+
+    max-width: 780px;
+}
+
+
+.quick-action {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 14px;
+
+    background:
+        rgba(9, 27, 44, 0.72);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.quick-action:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        rgba(19, 53, 77, 0.85);
+
+    border-color:
+        rgba(91, 204, 255, 0.35);
+}
+
+
+.quick-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background:
+        rgba(72, 184, 234, 0.12);
+
+    font-size: 19px;
+}
+
+
+.quick-action strong {
+
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+
+.quick-action small {
+
+    display: block;
+
+    color: #8496aa;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   DESTINATION INSPIRATION
+========================================================= */
+
+.inspiration-section {
+
+    max-width: 780px;
+
+    margin: auto;
+}
+
+
+.inspiration-title {
+
+    margin-bottom: 12px;
+
+    color: #9eacbb;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.3px;
+}
+
+
+.destination-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+
+.destination-card {
+
+    position: relative;
+
+    height: 150px;
+
+    overflow: hidden;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    background: #101d2b;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.destination-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(92, 205, 255, 0.35);
+}
+
+
+/* DESTINATION IMAGES */
+
+.destination-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+
+    background-position: center;
+
+    transition: transform 0.4s ease;
+}
+
+
+.destination-card:hover
+.destination-image {
+
+    transform: scale(1.06);
+}
+
+
+/* RED FORT */
+
+.destination-image.red-fort {
+
+    background-image:
+        linear-gradient(
+            180deg,
+            transparent 20%,
+            rgba(4, 12, 20, 0.85)
+        ),
+        url("https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=900&q=80");
+}
+
+
+/* EIFFEL TOWER */
+
+.destination-image.eiffel {
+
+    background-image:
+        linear-gradient(
+            180deg,
+            transparent 20%,
+            rgba(4, 12, 20, 0.85)
+        ),
+        url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80");
+}
+
+
+/* MANALI / MOUNTAINS */
+
+.destination-image.manali {
+
+    background-image:
+        linear-gradient(
+            180deg,
+            transparent 20%,
+            rgba(4, 12, 20, 0.85)
+        ),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80");
+}
+
+
+/* DESTINATION TEXT */
+
+.destination-info {
+
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+
+    z-index: 2;
+
+    color: white;
+}
+
+
+.destination-info strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 3px;
+}
+
+
+.destination-info span {
+
+    color: #c2cfdb;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   CONVERSATION AREA
+========================================================= */
+
+.conversation-area {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding:
+        35px
+        30px
+        125px;
+
+    overflow-y: auto;
+}
+
+
+/* HIDDEN */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* CHAT WINDOW */
+
+.chat-window {
+
+    width: min(900px, 100%);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   CHAT MESSAGES
+========================================================= */
+
+.chat-message {
+
+    display: flex;
+
+    width: 100%;
+}
+
+
+.chat-message.user {
+
+    justify-content: flex-end;
+}
+
+
+.chat-message.assistant {
+
+    justify-content: flex-start;
+}
+
+
+/* MESSAGE BUBBLE */
+
+.message-bubble {
+
+    max-width: 75%;
+
+    padding: 13px 16px;
+
+    border-radius: 16px;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+}
+
+
+/* USER */
+
+.chat-message.user .message-bubble {
+
+    background:
+        linear-gradient(
+            135deg,
+            #116c9f,
+            #0c567e
+        );
+
+    color: white;
+
+    border-bottom-right-radius: 5px;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+/* ASSISTANT */
+
+.chat-message.assistant .message-bubble {
+
+    background:
+        rgba(15, 31, 48, 0.95);
+
+    border:
+        1px solid var(--border);
+
+    color: #dce5ee;
+
+    border-bottom-left-radius: 5px;
+}
+
+
+/* =========================================================
+   CHAT INPUT
+========================================================= */
+
+.chat-input-container {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 10;
+
+    padding:
+        18px
+        30px
+        20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(7, 17, 31, 0.96) 35%
+        );
+}
+
+
+.chat-input-wrapper {
+
+    width: min(900px, 100%);
+
+    min-height: 54px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 10px;
+
+    padding: 7px 8px 7px 16px;
+
+    background:
+        rgba(13, 29, 45, 0.97);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(15px);
+
+    transition: border-color 0.2s ease;
+}
+
+
+.chat-input-wrapper:focus-within {
+
+    border-color:
+        rgba(80, 195, 245, 0.45);
+}
+
+
+#chatInput {
+
+    flex: 1;
+
+    min-height: 38px;
+
+    max-height: 130px;
+
+    resize: none;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    padding: 9px 0;
+}
+
+
+#chatInput::placeholder {
+
+    color: #65788c;
+}
+
+
+/* SEND BUTTON */
+
+.send-button {
+
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #31a9df,
+            #177db1
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.send-button:hover {
+
+    transform: scale(1.05);
+}
+
+
+.send-button:active {
+
+    transform: scale(0.96);
+}
+
+
+.send-button:disabled {
+
+    opacity: 0.45;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* INPUT HINT */
+
+.input-hint {
+
+    width: min(900px, 100%);
+
+    margin: 8px auto 0;
+
+    text-align: center;
+
+    color: #536579;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   LOADING MESSAGE
+========================================================= */
+
+.typing-indicator {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 2px;
+}
+
+
+.typing-indicator span {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6e8397;
+
+    animation:
+        typingAnimation 1.2s infinite ease-in-out;
+}
+
+
+.typing-indicator span:nth-child(2) {
+
+    animation-delay: 0.15s;
+}
+
+
+.typing-indicator span:nth-child(3) {
+
+    animation-delay: 0.3s;
+}
+
+
+@keyframes typingAnimation {
+
+    0%,
+    60%,
+    100% {
+
+        opacity: 0.3;
+
+        transform: translateY(0);
+    }
+
+    30% {
+
+        opacity: 1;
+
+        transform: translateY(-3px);
+    }
+}
+
+
+/* =========================================================
+   HOTEL RESULT CARD
+   Future-ready styling
+========================================================= */
+
+.hotel-results {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 10px;
+}
+
+
+.hotel-card {
+
+    overflow: hidden;
+
+    background:
+        #102033;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    transition: 0.2s ease;
+}
+
+
+.hotel-card:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(87, 200, 250, 0.3);
+}
+
+
+.hotel-image {
+
+    width: 100%;
+
+    height: 130px;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.hotel-content {
+
+    padding: 14px;
+}
+
+
+.hotel-name {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: white;
+}
+
+
+.hotel-location {
+
+    margin-top: 5px;
+
+    color: #8fa1b3;
+
+    font-size: 11px;
+}
+
+
+.hotel-price {
+
+    margin-top: 10px;
+
+    color: #6dd6ff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SCROLLBARS
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 7px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #23384c;
+
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #34526b;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+
+        width: 210px;
+    }
+
+    .welcome-content h2 {
+
+        font-size: 48px;
+    }
+
+    .quick-actions {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .quick-action {
+
+        padding: 12px;
+    }
+
+    .destination-cards {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+
+        overflow: hidden;
+    }
+
+
+    .app-header {
+
+        height: 62px;
+
+        padding: 0 15px;
+    }
+
+
+    .brand-icon {
+
+        width: 35px;
+        height: 35px;
+
+        border-radius: 10px;
+    }
+
+
+    .brand-text h1 {
+
+        font-size: 17px;
+    }
+
+
+    .brand-text span {
+
+        font-size: 9px;
+    }
+
+
+    .header-status {
+
+        font-size: 10px;
+    }
+
+
+    .sidebar {
+
+        display: none;
+    }
+
+
+    .app-layout {
+
+        height: calc(100vh - 62px);
+    }
+
+
+    .welcome-screen {
+
+        padding:
+            25px
+            18px
+            130px;
+    }
+
+
+    .welcome-content h2 {
+
+        font-size: 39px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .welcome-content > p {
+
+        font-size: 13px;
+
+        margin-top: 16px;
+    }
+
+
+    .quick-actions {
+
+        gap: 8px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .quick-action {
+
+        padding: 11px;
+    }
+
+
+    .destination-cards {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .destination-card {
+
+        height: 110px;
+    }
+
+
+    .conversation-area {
+
+        padding:
+            20px
+            15px
+            125px;
+    }
+
+
+    .message-bubble {
+
+        max-width: 88%;
+
+        font-size: 13px;
+    }
+
+
+    .chat-input-container {
+
+        padding:
+            10px
+            12px
+            14px;
+    }
+
+
+    .chat-input-wrapper {
+
+        border-radius: 15px;
+
+        padding-left: 13px;
+    }
+
+
+    .input-hint {
+
+        display: none;
+    }
+
+
+    .hotel-results {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .welcome-content h2 {
+
+        font-size: 33px;
+    }
+
+
+    .welcome-badge {
+
+        font-size: 9px;
+    }
+
+
+    .welcome-content > p {
+
+        font-size: 12px;
+    }
+
+
+    .destination-card {
+
+        height: 95px;
+    }
+}
