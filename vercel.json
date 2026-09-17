@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/chat",
-      "destination": "http://prakash-backend-552669364.us-east-1.elb.amazonaws.com/chat"
-    }
-  ]
-}
