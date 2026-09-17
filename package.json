@@ -1,0 +1,12 @@
+{
+  "name": "auraos-frontend",
+  "version": "1.0.0",
+  "description": "AuraOS Luxury Hotels frontend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
